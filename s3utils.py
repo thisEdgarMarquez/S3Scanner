@@ -123,7 +123,7 @@ def checkBucket(inBucket, slog, flog, argsDump, argsList):
 
         message = "{0:>11} : {1}".format("[found]", bucket + " | " + str(size) + " | ACLs: " + str(b["acls"]))
         slog.info(message)
-        flog.debug(bucket)
+        flog.debug(message)
 
         if argsDump:
             if size not in ["AccessDenied", "AllAccessDisabled"]:
@@ -135,6 +135,7 @@ def checkBucket(inBucket, slog, flog, argsDump, argsList):
     else:
         message = "{0:>11} : {1}".format("[not found]", bucket)
         slog.error(message)
+        flog.debug(message)
 
 
 def checkBucketName(bucket_name):
